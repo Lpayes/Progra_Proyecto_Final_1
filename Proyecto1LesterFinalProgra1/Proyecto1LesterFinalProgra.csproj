@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>8</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>2df8d04c-5bfa-101b-bde5-00aa0044de52</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.PowerPoint">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>12</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>91493440-5a91-11cf-8700-00aa0060263b</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>7</VersionMinor>
+      <VersionMajor>8</VersionMajor>
+      <Guid>00020905-0000-0000-c000-000000000046</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.66" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.0-preview1.25120.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0-preview.4.25258.110" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0-preview.4.25258.110" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="10.0.0-preview.4.25258.110" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.0-preview.4.25258.110" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="OpenAI-DotNet" Version="8.6.4" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Plantillas\PlantillaGenerica.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Plantillas\PlantillaWord.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Plantillas\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
